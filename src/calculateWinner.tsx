@@ -1,5 +1,8 @@
-import React from 'react'
-export default function calculateWinner(squares) {
+
+type squareProps= string|null
+type objectProps =squareProps[]
+
+export default function calculateWinner(squares: objectProps) {
     const lines = [
       [0, 1, 2],
       [3, 4, 5],

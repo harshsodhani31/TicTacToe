@@ -1,11 +1,16 @@
 import React from 'react'
 import Square from './Square'
-export default function Board(props) {
-    function renderSquare(i){
+type squareProps = string|null
+type BoardProps = {
+  squares: squareProps[]
+
+}
+export default function Board(props:BoardProps) {
+    function renderSquare(i:number){
         return (
           <Square
             value={props.squares[i]}
-            onClick={() => props.onClick(i)}
+            ind ={i}
           />
         );
       }
