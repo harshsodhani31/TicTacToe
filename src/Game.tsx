@@ -9,13 +9,13 @@ type createContextProps ={
    handleClick: (i: number)=> void
  
 }
+
 export const handleContext = React.createContext<createContextProps>({handleClick: (i:number)=>{}});
 function Game() {
     const [history,setHistory] = useState<objectProps[]>([{squares: Array(9).fill(null)}] )
     const [stepNumber,setStepNumber] = useState(0)
     const [xIsNext,setXIsNext] = useState(true)
-    function handleClick(i:number) {
-        console.log(i+" click")
+    const handleClick = (i:number) => {
         const History = history.slice(0, stepNumber + 1)
         const current = History[History.length - 1]
         const squares = current.squares.slice()
@@ -26,7 +26,7 @@ function Game() {
         setHistory(History.concat([{squares: squares}]))
         setStepNumber(History.length)
         setXIsNext(!xIsNext)
-
+        
       }
       function jumpTo(step:number){
           setStepNumber(step)
@@ -39,7 +39,7 @@ function Game() {
             'Go to game start';
             return (
                 <li key={move}>
-                    <button onClick={() => jumpTo(move)}>{desc}</button>
+                    <button data-testid={`btn-${move}`} onClick={() => jumpTo(move)}>{desc}</button>
                 </li>
                 );
     });
@@ -69,6 +69,5 @@ function Game() {
         </div>
       </div>
   )
-}
-
+  }
 export default Game

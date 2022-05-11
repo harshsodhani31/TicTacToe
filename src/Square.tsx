@@ -8,7 +8,7 @@ type SquareProps = {
 export default  function Square(props: SquareProps) {
     const {handleClick} = useContext(handleContext);
     return (
-        <button className="square" onClick={()=>handleClick(props.ind)}>
+        <button className="square" data-testid={`btn ${props.ind}`} onClick={()=>handleClick(props.ind)}>
           {props.value}
         </button>
       );

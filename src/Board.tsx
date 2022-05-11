@@ -1,35 +1,29 @@
 import React from 'react'
-import Square from './Square'
+import renderSquare from  './renderSquare'
+
 type squareProps = string|null
 type BoardProps = {
   squares: squareProps[]
 
 }
 export default function Board(props:BoardProps) {
-    function renderSquare(i:number){
-        return (
-          <Square
-            value={props.squares[i]}
-            ind ={i}
-          />
-        );
-      }
+    
         return (
           <div>
             <div className="board-row">
-              {renderSquare(0)}
-              {renderSquare(1)}
-              {renderSquare(2)}
+              {renderSquare(props,0)}
+              {renderSquare(props,1)}
+              {renderSquare(props,2)}
             </div>
             <div className="board-row">
-              {renderSquare(3)}
-              {renderSquare(4)}
-              {renderSquare(5)}
+              {renderSquare(props,3)}
+              {renderSquare(props,4)}
+              {renderSquare(props,5)}
             </div>
             <div className="board-row">
-              {renderSquare(6)}
-              {renderSquare(7)}
-              {renderSquare(8)}
+              {renderSquare(props,6)}
+              {renderSquare(props,7)}
+              {renderSquare(props,8)}
             </div>
           </div>
         );
